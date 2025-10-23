@@ -72,3 +72,39 @@ if df.isnull().sum().sum() > 0:
 else:
   print("Il n'y a pas de valeurs nulles dans le dataset")
 """Aucune valeur nulle dans le dataset => Pas besoin de nettoyage
+### Appliquez la normalisation ou la standardisation aux caractéristiques numériques telles que l'âge, l'imc et les frais pour les préparer à l'analyse.
+"""
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+# Selection des colonnes numériques
+numerical_cols = ['age', 'bmi', 'charges']
+# Normalisation en utilisant MinMaxScaler
+scaler = MinMaxScaler()
+df_normalized = df.copy()
+df_normalized[numerical_cols] = scaler.fit_transform(df[numerical_cols])
+# Affichage des colonnes avant / après normalisation
+print("Original (5 premières lignes):")
+print(df[numerical_cols].head())
+print("\nNormalized (5 premières lignes):")
+print(df_normalized[numerical_cols].head())
+"""### Encoder des variables catégorielles telles que le sexe, le fumeur et la région pour faciliter une analyse plus approfondie"""
+from sklearn.preprocessing import LabelEncoder
+# Label Encoding pour le sexe et la colonne "smoker"
+label_encoder = LabelEncoder()
+df['sex'] = label_encoder.fit_transform(df['sex'])       # female=0, male=1
+df['smoker'] = label_encoder.fit_transform(df['smoker']) # no=0, yes=1
+df['region'] = label_encoder.fit_transform(df['region']) # 0=northeast, 1=northwest, 2=southeast, 3=southwest
+# Affichage du résultat
+df
+"""## Exploration des caractéristiques :
+### Explorez l'impact des différentes caractéristiques sur les coûts médicaux, en vous concentrant sur des variables clés telles que l'IMC, le statut de tabagisme et le nombre de personnes à charge.
+"""
+# --- Correlation Matrix ---
+correlation_matrix = df.corr(numeric_only=True)
+print(correlation_matrix)
+# Matrice de correlation
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
+plt.title('Correlation Matrix of Features')
+plt.tight_layout()
+plt.show()
