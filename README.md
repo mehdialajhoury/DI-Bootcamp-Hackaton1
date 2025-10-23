@@ -62,9 +62,8 @@ Cette commande exécute le fichier python du projet
 
 ## 📊 Étapes de l'Analyse
 
-### 1️⃣ Exploratory Data Analysis (EDA)
+### 1️⃣ Analyse Exploratoire des données (EDA)
 
-**Script**: `scripts/1_eda.py`
 
 **Objectifs**:
 - Effectuer une analyse complète de l'ensemble de données pour comprendre la répartition des variables et identifier toute corrélation entre des caractéristiques telles que l'âge, l'IMC, le statut de tabagisme et les frais médicaux (charges).
@@ -73,9 +72,8 @@ Cette commande exécute le fichier python du projet
 
 ### 2️⃣ Prétraitement des données
 
-**Script**: `scripts/2_preprocessing.py`
-
 **Objectifs**:
+
 - Gérer les données manquantes et effectuer tout nettoyage de données nécessaire.
 - Application d'une normalisation sur les valeurs age, bmi, et charges
 - Encoder les valeurs numériques des colonnes sex, smoker, et region
@@ -83,8 +81,6 @@ Cette commande exécute le fichier python du projet
 ---
 
 ### 3️⃣ Exploration des caractéristiques
-
-**Script**: `scripts/3_feature_exploration.py`
 
 **Objectifs**:
 - Explorez l'impact des différentes caractéristiques sur les coûts médicaux, en vous concentrant sur des variables clés telles que l'IMC, le statut de tabagisme et le nombre de personnes à charge.
@@ -95,7 +91,6 @@ Cette commande exécute le fichier python du projet
 
 ### 4️⃣ Visualisations (Matplotlib & Seaborn)
 
-**Script**: `scripts/4_visualizations.py`
 
 **Objectifs**:
 - Utilisez Matplotlib et Seaborn pour créer des visualisations qui communiquent efficacement vos résultats. Les exemples peuvent inclure des diagrammes de dispersion, des diagrammes de boîtes, des cartes thermiques et des graphiques à barres.
@@ -112,17 +107,10 @@ Cette commande exécute le fichier python du projet
 
 ### 5️⃣ Regional Analysis (BONUS)
 
-**Script**: `scripts/5_regional_analysis.py`
 
 **Objectifs**:
 - Comparer les charges entre les 4 régions (northeast, southeast, southwest, northwest)
 - Identifier les facteurs régionaux
-- Effectuer des tests statistiques (ANOVA)
-
-**Résultats ANOVA**:
-- Effectuer une analyse détaillée de la façon dont les coûts médicaux varient selon les régions (northeast, southeast, southwest, northwest).
-- Identifiez les tendances régionales en matière de frais médicaux et suggérez les raisons de ces variations.
-
 
 
 ## 🛠️ Technologies Utilisées
