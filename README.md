@@ -55,9 +55,7 @@ Les packages requis sont :
 ### Option 1 : Exécution du programme
 
 
-python3 hackaton.py
-
-Cette commande exécute le fichier python du projet
+Ouvrir le fichier Hackaton_final.ipynb sous Google Colab ou cliquer sur le lien : https://colab.research.google.com/drive/1CftPKcOEcsrutT3bKwx3Mq6DgNTANpAZ
 
 
 ## 📊 Étapes de l'Analyse
