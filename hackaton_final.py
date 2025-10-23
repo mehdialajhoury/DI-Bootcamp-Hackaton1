@@ -42,7 +42,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Boxplot: Frais selon le statut de fumeur
+# Frais selon le statut de fumeur
 plt.figure()
 sns.boxplot(x="smoker", y="charges", data=df, hue="smoker", palette={"yes": "red", "no": "green"})
 plt.title("Frais selon le statut de fumeur")
@@ -51,7 +51,7 @@ plt.ylabel("Frais")
 plt.tight_layout()
 plt.show()
 
-#Age vs Frais
+# Frais selon l'âge
 plt.figure()
 sns.lineplot(x="age", y="charges", data=df)
 plt.title("Frais selon l'âge")
@@ -59,7 +59,7 @@ plt.xlabel("Âge")
 plt.ylabel("Frais")
 plt.show()
 
-# IMC vs Frais
+# IMC vs Frais selon le statut de fumeur
 plt.figure()
 sns.scatterplot(data=df, x="bmi", y="charges", hue="smoker", palette={"yes": "red", "no": "green"})
 plt.title("IMC vs Frais selon le statut de fumeur")
@@ -67,17 +67,17 @@ plt.xlabel("IMC")
 plt.ylabel("Frais")
 plt.show()
 
-# Sexe
+# Frais par genre
 plt.figure()
 sns.violinplot(x="sex", y="charges", data=df, hue="sex", palette={"female": "pink", "male": "blue"})
-plt.title("Charges selon le sexe")
+plt.title("Frais par genre")
 plt.xlabel("Genre")
 plt.ylabel("Frais")
 plt.show()
 
-# Région
+# Charges moyennes par région
 plt.figure()
-sns.barplot(x="region", y="charges", data=df, estimator='mean',palette='pastel')
+sns.barplot(x="region", y="charges", hue="region", data=df, estimator='mean',palette='pastel')
 plt.title("Charges moyennes par région")
 plt.xlabel("Région")
 plt.ylabel("Frais")
@@ -143,10 +143,10 @@ df
 correlation_matrix = df.corr(numeric_only=True)
 print(correlation_matrix)
 
-# Matrice de correlation
+# Matrice de corrélation
 plt.figure(figsize=(10, 8))
 sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
-plt.title('Correlation Matrix of Features')
+plt.title('Matrice de corrélation')
 plt.tight_layout()
 plt.show()
 
@@ -165,7 +165,10 @@ plt.show()
 # --- IMC vs Coûts en fonction de la cigarette ---
 plt.figure(figsize=(10, 6))
 sns.scatterplot(data=df, x='bmi', y='charges', hue='smoker', style='smoker', palette='Set1')
-plt.title('IMC vs Coûts en fonction de la cigarette')
+plt.title('IMC vs Coûts en fonction du tabac')
+plt.xlabel('IMC')
+plt.ylabel('Coûts')
+plt.legend(title='Fumeur')
 plt.tight_layout()
 plt.show()
 
@@ -188,7 +191,7 @@ plt.ylabel("Frais")
 plt.show()
 
 
-# Violinplot distribution medical charges by smoking status
+# Distribution des frais médicaux par fumeur
 plt.figure(figsize=(10, 6))
 sns.violinplot(x='smoker', y='charges', data=df, hue='smoker', palette='Set1')
 plt.title('Distribution des frais médicaux par fumeur')
@@ -218,7 +221,7 @@ from sklearn.preprocessing import LabelEncoder
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Distribution of Medical Charges by Region (ordered by mean)
+# Distribution des frais médicaux par région (Trié par moyenne)
 plt.figure(figsize=(10, 6))
 sns.boxplot(x='region', y='charges', data=df2, hue='region', palette='vlag')
 plt.title('Distribution des frais médicaux par région (Trié par moyenne)')
@@ -267,10 +270,10 @@ fig = px.choropleth(
 fig.update_layout(title='Frais médicaux moyens par région')
 fig.show()
 
-# substract df2 all values smoker=no
+# Reprise du dataset d'origine (pour éviter les régions à 0,1,2,3)
 df2 = df2[df2['smoker'] == 'yes']
 
-# Barplot fumeur par région
+# Fumeurs par région
 plt.figure(figsize=(10, 6))
 sns.countplot(x='region', hue='smoker', data=df2, palette='pastel')
 plt.title('Nombre de fumeur par région')
