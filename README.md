@@ -134,6 +134,10 @@ Octobre 2025
 
 ---
 
+## 📺 Vidéo du projet :
+
+Retrouvez la vidéo de présentation technique du projet sur le site Loom : https://www.loom.com/share/3477f91c64184e998937e4953ecb895c
+
 ## 📄 Licence
 
 Ce projet est développé dans le cadre d'un hackathon éducatif.
